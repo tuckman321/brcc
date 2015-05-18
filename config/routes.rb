@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root "pins#index"
   get "about" => "pages#about" #creates about_path
-  get "adventures" => "pages#adventures" #creates adventures_path
 
 
   # The priority is based upon order of creation: first created -> highest priority.
