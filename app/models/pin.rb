@@ -6,4 +6,7 @@ class Pin < ActiveRecord::Base
 
 	validates :image, presence: true
 	validates :description, presence: true
+	validates :inspectby, presence: true
+	validates :recentrepairs, presence: false
+	validates :repairpriority, presence: false
 end
