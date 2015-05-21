@@ -8,5 +8,8 @@ class Pin < ActiveRecord::Base
 	validates :description, presence: true
 	validates :inspectby, presence: true
 	validates :recentrepairs, presence: false
-	validates :repairpriority, presence: false
+	validates :repairpriority, presence: true
+	validates :inspectiondate, presence: true
+	validates :bridgetype, presence: true
+
 end

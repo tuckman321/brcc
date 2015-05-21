@@ -6,15 +6,42 @@
 		<div class="panel-heading center">
 			<%= image_tag @pin.image.url (:medium) %>
 		</div>
-		<div class="panel-body">
-		<p>
-			<strong><%= @pin.repairpriority %></strong><br>
-			<%= @pin.description %><br>
-			<%= @pin.inspectby %><br>
-			<%= @pin.recentrepairs %>
-		</p>
-		<p><strong><%= @pin.user.name if @pin.user %></strong></p>
+		<table style="width:100%" class="table table-striped"><col width="28%">
+			<tr>
+				<td><strong>Bridge number and location: </strong></td>
+				<td><%= @pin.description %></td>
+			</tr>
+			<tr>
+				<td><strong>Structure type: </strong></td>
+				<td><%= @pin.bridgetype %></td>
+			</tr>
+			<% if @pin.repairpriority == 1 %>
+				<tr class="danger">
+				<td><strong>Repair Priority: </strong></td>
+				<td><%= @pin.repairpriority %></td>
+				</tr>
+			<% else %>
+				<tr>
+				<td><strong>Repair Priority: </strong></td>
+				<td><%= @pin.repairpriority %></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td><strong>Inspection date: </strong></td>
+				<td><%= @pin.inspectiondate %></td>
+			</tr>
+			<tr>
+				<td><strong>Inspected by: </strong></td>
+				<td><%= @pin.inspectby %></td>
+			</tr>
+			<tr>
+				<td><strong>Recent repairs: </strong></td>
+				<td><%= @pin.recentrepairs %></td>
+			</tr>
+		</table>
 		
+		<% if 1>2 %><p><strong><%= @pin.user.name if @pin.user %></strong></p><%end%>
+
 		<% if @pin.user == current_user %>
 			<%= link_to edit_pin_path(@pin) do %>
 				<span class="glyphicon glyphicon-edit"></span>
@@ -25,3 +52,49 @@
 	</div>
 
 </div>
+
+
+
+
+<% if 1>2 %>
+		<div class="panel-heading center">
+			<div id="carousel-show" class="carousel slide" data-ride="carousel">
+	  	<!-- Indicators -->
+	  	<ol class="carousel-indicators">
+	    	<li data-target="#carousel-show" data-slide-to="0" class="active"></li>
+	    	<li data-target="#carousel-show" data-slide-to="1"></li>
+	    	<li data-target="#carousel-show" data-slide-to="2"></li>
+	  	</ol>
+	  	<!-- Wrapper for slides -->
+	  	<div class="carousel-inner" role="listbox">	
+	    	<div class="item active">
+	      	<%= image_tag @pin.image.url (:medium) %>
+	      	<div class="carousel-caption">
+	        Blah Blah Blah	
+	      </div>
+	    	</div>
+	    	<div class="item">
+	      	<%= image_tag @pin.image.url (:medium) %>
+	      	<div class="carousel-caption">
+	          Blah Blah Blah	
+	        </div>
+	    	</div>
+	    	<div class="item">
+	      	<%= image_tag @pin.image.url (:medium) %>
+	      	<div class="carousel-caption">
+	          Blah Blah Blah	
+	        </div>
+	    	</div>
+	  	</div>
+	  		<!-- Controls -->
+	  		<a class="left carousel-control" href="#carousel-show" role="button" data-slide="prev">
+	    		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    		<span class="sr-only">Previous</span>
+	  		</a>
+	  		<a class="right carousel-control" href="#carousel-show" role="button" data-slide="next">
+	    		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    		<span class="sr-only">Next</span>
+	  		</a>
+			</div>
+		</div>
+<% end %>		
